@@ -28,7 +28,7 @@ sponge {
         entrypoint("io.github.pulverizer.hazardous_materials.HazardousMaterials")
         description("Making stored and carried items flammable and/or explosive!")
         links {
-            homepage("")
+            homepage("https://github.com/Pulverizer/hazardous-materials")
             source("https://github.com/Pulverizer/hazardous-materials")
             issues("https://github.com/Pulverizer/hazardous-materials/issues")
         }

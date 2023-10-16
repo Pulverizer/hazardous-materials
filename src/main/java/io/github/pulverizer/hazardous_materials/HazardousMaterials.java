@@ -49,7 +49,7 @@ public class HazardousMaterials {
     }
 
     @Listener
-    private void onConstructPlugin(final ConstructPluginEvent event) {
+    public void onConstructPlugin(final ConstructPluginEvent event) {
         // Perform any one-time setup
         this.logger.info("Forgetting hazardous material stickers...");
 

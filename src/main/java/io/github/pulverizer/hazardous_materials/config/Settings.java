@@ -37,7 +37,7 @@ public class Settings {
             Settings.LOCALE = mainConfigNode.node("Locale").getString("en");
             Settings.Debug = mainConfigNode.node("Debug").getBoolean(false);
 
-            Settings.AmmoDetonationMultiplier = mainConfigNode.node("AmmoDetonationMultiplier").getInt(0);
+            Settings.AmmoDetonationMultiplier = mainConfigNode.node("AmmoDetonationMultiplier").getInt(1);
 
             //TODO - Re-add when it doesn't break tidy configs
             if (genDefaults) {
