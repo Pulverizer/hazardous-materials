@@ -1,1 +1,1 @@
-rootProject.name = "sponge-plugin-template"
+rootProject.name = "hazardous-materials"

@@ -2,14 +2,14 @@ import org.spongepowered.gradle.plugin.config.PluginLoaders
 import org.spongepowered.plugin.metadata.model.PluginDependency
 
 plugins {
-    val spongeGradleVersion = "2.1.1"
+    val spongeGradleVersion = "2.2.0"
 
     `java-library`
     id("org.spongepowered.gradle.plugin") version spongeGradleVersion
     id("org.spongepowered.gradle.ore") version spongeGradleVersion // for Ore publishing
 }
 
-group = "org.spongepowered"
+group = "io.github.pulverizer"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -17,22 +17,22 @@ repositories {
 }
 
 sponge {
-    apiVersion("10.0.0-SNAPSHOT")
-    license("CHANGEME")
+    apiVersion("8.2.0")
+    license("CC0")
     loader {
         name(PluginLoaders.JAVA_PLAIN)
         version("1.0")
     }
-    plugin("example") {
-        displayName("Example")
-        entrypoint("org.spongepowered.example.Example")
-        description("Just testing things...")
+    plugin("hazardous-materials") {
+        displayName("Hazardous Materials")
+        entrypoint("io.github.pulverizer.hazardous_materials.HazardousMaterials")
+        description("Making stored and carried items flammable and/or explosive!")
         links {
-            homepage("https://spongepowered.org")
-            source("https://spongepowered.org/source")
-            issues("https://spongepowered.org/issues")
+            homepage("")
+            source("https://github.com/Pulverizer/hazardous-materials")
+            issues("https://github.com/Pulverizer/hazardous-materials/issues")
         }
-        contributor("Spongie") {
+        contributor("BernardisGood") {
             description("Lead Developer")
         }
         dependency("spongeapi") {
@@ -42,7 +42,7 @@ sponge {
     }
 }
 
-val javaTarget = 17
+val javaTarget = 16
 java {
     sourceCompatibility = JavaVersion.toVersion(javaTarget)
     targetCompatibility = JavaVersion.toVersion(javaTarget)
