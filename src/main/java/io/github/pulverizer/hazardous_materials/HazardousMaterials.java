@@ -2,29 +2,21 @@ package io.github.pulverizer.hazardous_materials;
 
 import com.google.inject.Inject;
 import io.github.pulverizer.hazardous_materials.config.Settings;
-import io.github.pulverizer.hazardous_materials.listener.PlayerListener;
-import io.github.pulverizer.hazardous_materials.listener.TNTListener;
-import net.kyori.adventure.identity.Identity;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.LinearComponents;
-import net.kyori.adventure.text.format.NamedTextColor;
-import net.kyori.adventure.text.format.Style;
-import net.kyori.adventure.text.format.TextDecoration;
+import io.github.pulverizer.hazardous_materials.listener.BlockListener;
 import org.apache.logging.log4j.Logger;
+import org.spongepowered.api.ResourceKey;
 import org.spongepowered.api.Server;
 import org.spongepowered.api.Sponge;
-import org.spongepowered.api.command.Command;
-import org.spongepowered.api.command.CommandResult;
-import org.spongepowered.api.command.parameter.Parameter;
 import org.spongepowered.api.config.ConfigDir;
 import org.spongepowered.api.event.Listener;
-import org.spongepowered.api.event.lifecycle.ConstructPluginEvent;
-import org.spongepowered.api.event.lifecycle.RegisterCommandEvent;
-import org.spongepowered.api.event.lifecycle.StartingEngineEvent;
-import org.spongepowered.api.event.lifecycle.StoppingEngineEvent;
+import org.spongepowered.api.event.lifecycle.*;
+import org.spongepowered.api.world.World;
+import org.spongepowered.api.world.server.ServerLocation;
+import org.spongepowered.api.world.server.ServerWorld;
 import org.spongepowered.plugin.PluginContainer;
 import org.spongepowered.plugin.builtin.jvm.Plugin;
 
+import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
 
 /**
@@ -51,12 +43,16 @@ public class HazardousMaterials {
     @Listener
     public void onConstructPlugin(final ConstructPluginEvent event) {
         // Perform any one-time setup
+
+        //Sponge.eventManager().registerListeners(container, new EntityListener(), MethodHandles.lookup());
+        Sponge.eventManager().registerListeners(container, new BlockListener(), MethodHandles.lookup());
+    }
+
+    @Listener
+    public void onGameStart(final StartingEngineEvent<Server> event) {
         this.logger.info("Forgetting hazardous material stickers...");
 
         Settings.load(logger, configDirectory);
-
-        Sponge.eventManager().registerListeners(container, new PlayerListener());
-        Sponge.eventManager().registerListeners(container, new TNTListener());
     }
 /*
     @Listener

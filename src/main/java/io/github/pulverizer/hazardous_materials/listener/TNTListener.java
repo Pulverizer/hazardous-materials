@@ -11,6 +11,7 @@ import org.spongepowered.api.item.inventory.Inventory;
 import org.spongepowered.api.item.inventory.query.Query;
 import org.spongepowered.api.item.inventory.query.QueryTypes;
 import org.spongepowered.api.world.explosion.Explosion;
+import org.spongepowered.api.world.explosion.ExplosionBlockInteractions;
 import org.spongepowered.api.world.server.ServerLocation;
 
 import java.util.HashMap;
@@ -53,7 +54,7 @@ public class TNTListener {
 
                     Explosion explosion = Explosion.builder()
                             .location(location.add(0.5, 0.5, 0.5))
-                            .shouldBreakBlocks(true)
+                            .blockInteraction(ExplosionBlockInteractions.DESTROY.get())
                             .shouldDamageEntities(true)
                             .shouldPlaySmoke(true)
                             .radius(size)

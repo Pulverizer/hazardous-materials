@@ -2,7 +2,7 @@ import org.spongepowered.gradle.plugin.config.PluginLoaders
 import org.spongepowered.plugin.metadata.model.PluginDependency
 
 plugins {
-    val spongeGradleVersion = "2.2.0"
+    val spongeGradleVersion = "2.3.0"
 
     `java-library`
     id("org.spongepowered.gradle.plugin") version spongeGradleVersion
@@ -17,7 +17,7 @@ repositories {
 }
 
 sponge {
-    apiVersion("8.2.0")
+    apiVersion("14.0.0")
     license("CC0")
     loader {
         name(PluginLoaders.JAVA_PLAIN)
@@ -33,7 +33,7 @@ sponge {
             issues("https://github.com/Pulverizer/hazardous-materials/issues")
         }
         contributor("BernardisGood") {
-            description("Lead Developer")
+            description("Developer")
         }
         dependency("spongeapi") {
             loadOrder(PluginDependency.LoadOrder.AFTER)
